@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from fake_useragent import UserAgent
+
 # Scrapy settings for realestate project
 #
 # For simplicity, this file contains only settings considered important or
@@ -16,10 +18,10 @@ NEWSPIDER_MODULE = 'realestate.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'realestate (+http://www.yourdomain.com)'
+USER_AGENT = UserAgent()['chrome']
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -33,7 +35,7 @@ ROBOTSTXT_OBEY = True
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -46,9 +48,10 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
+SPIDER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware': 200,
 #    'realestate.middlewares.RealestateSpiderMiddleware': 543,
-#}
+}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
@@ -70,7 +73,7 @@ ROBOTSTXT_OBEY = True
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
-#AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_ENABLED = True
 # The initial download delay
 #AUTOTHROTTLE_START_DELAY = 5
 # The maximum download delay to be set in case of high latencies
