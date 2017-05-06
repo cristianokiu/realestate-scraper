@@ -11,6 +11,15 @@ from scrapy.conf import settings
 
 class RealestatePipeline(object):
     def process_item(self, item, spider):
+        scraped = spider.crawler.stats.get_value('scraped_pages')
+        total = spider.crawler.stats.get_value('selected_pages')
+
+        spider.logger.info('Pages: [{}/{}] - {:.0%}'.format(
+            scraped, total, scraped/total))
+        spider.logger.info('Item[{}]: {}'.format(
+            spider.crawler.stats.get_value('item_scraped_count') or 0,
+            item.get('TituloPagina')))
+
         return item
 
 

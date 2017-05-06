@@ -69,7 +69,7 @@ SPIDER_MIDDLEWARES = {
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'realestate.pipelines.MongoDBPipeline': 200,
-#    'realestate.pipelines.RealestatePipeline': 300,
+    'realestate.pipelines.RealestatePipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -92,6 +92,9 @@ AUTOTHROTTLE_ENABLED = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# Log Messages
+LOG_LEVEL='INFO'
 
 # MongoDB
 MONGODB_SERVER = "localhost"
