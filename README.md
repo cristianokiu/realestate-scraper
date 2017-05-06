@@ -1,4 +1,4 @@
-# Real State - Scraper
+# Real Estate - Scraper
 A scraper that gathers data from real estate ads.
 
 ### Currently Suported Websites
@@ -16,8 +16,8 @@ A scraper that gathers data from real estate ads.
 ### 1. Clone this repository
 Clone this repository using [git](https://git-scm.com/) and cd into the project folder:
 ```sh
-git clone https://github.com/pauloromeira/realstate-scraper.git && \
-cd realstate-scraper
+git clone https://github.com/pauloromeira/realestate-scraper.git && \
+cd realestate-scraper
 ```
 
 ### 2. Install Python requirements
