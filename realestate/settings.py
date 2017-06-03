@@ -101,3 +101,9 @@ MONGODB_SERVER = "localhost"
 MONGODB_PORT = 27017
 MONGODB_DB = "realestate_scraper"
 MONGODB_COLLECTION = "realestate"
+
+# Jmespath
+# JMESPATH = """
+# {CodigoAnunciante:CodigoAnunciante}
+# """
+
