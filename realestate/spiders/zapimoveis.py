@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import re
 import json
 import scrapy
 
@@ -11,14 +12,15 @@ class ZapimoveisSpider(scrapy.Spider):
     name = "zapimoveis"
     allowed_domains = ["zapimoveis.com.br"]
 
-    def __init__(self, url=None, start=1, count=None, seed=None,
+    def __init__(self, urls=None, start=1, count=None, seed=None,
                  *args, **kwargs):
         super(ZapimoveisSpider, self).__init__(*args, **kwargs)
         self.seed = seed
         self.start = int(start) if start else 1
         self.count = int(count) if count else None
-        self.start_urls = \
-                [url or 'https://www.zapimoveis.com.br/venda/imoveis/pe/']
+        self.start_urls = (re.findall('[^\s,]+', urls) or
+                           ['https://www.zapimoveis.com.br/venda/imoveis/pe/'])
+
 
     def parse(self, response):
         hidden = lambda id: response.xpath(
