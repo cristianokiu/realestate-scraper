@@ -38,7 +38,8 @@ class RealestatePipeline(object):
             spider.crawler.stats.get_value('item_scraped_count') or 0,
             item.get('TituloPagina')))
 
-        self.item_keys.update(item.keys())
+        self.item_keys.update(k for k, v in item.items()
+                if v and not isinstance(v, bool))
 
         return self.jmes.search(item) if self.jmes else item
 

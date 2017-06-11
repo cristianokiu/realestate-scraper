@@ -102,7 +102,50 @@ MONGODB_DB = "realestate_scraper"
 MONGODB_COLLECTION = "realestate"
 
 # Jmespath
-# JMESPATH = """
-# {CodigoAnunciante:CodigoAnunciante}
-# """
-
+JMESPATH = """{
+  AnuncianteTipo:AnuncianteTipo
+  Area:Area
+  Bairro:BairroOficial||Bairro
+  Cidade:CidadeOficial||Cidade
+  CEP:CEP
+  CodImobiliaria:CodImobiliaria
+  CodigoAnunciante:CodigoAnunciante
+  CodigoOfertaImobiliaria:CodigoOfertaImobiliaria
+  CodigoOfertaZAP:CodigoOfertaZAP
+  DataAtualizacaoHumanizada:DataAtualizacaoHumanizada
+  DetalhesOferta:DetalhesOferta
+  DistanciaMetro:DistanciaMetro
+  DistanciaOnibus:DistanciaOnibus
+  Endereco:Endereco
+  Estado:Estado
+  FormatarSubTipoImovel:FormatarSubTipoImovel
+  FormatarSubTipoOferta:FormatarSubTipoOferta
+  Fotos:join(` `, Fotos[].UrlImagemTamanhoGG)
+  Latitude:Latitude
+  LogNota:LogNota
+  Longitude:Longitude
+  NomeAnunciante:NomeAnunciante
+  Nota:Nota
+  Observacao:Observacao
+  OrigemLead:OrigemLead
+  PrecoCondominio:PrecoCondominio
+  QuantidadeQuartos:QuantidadeQuartos
+  QuantidadeSuites:QuantidadeSuites
+  QuantidadeVagas:QuantidadeVagas
+  SubTipo:SubTipo
+  SubTipoOferta:SubTipoOferta
+  Tipo:Tipo
+  TipoDaOferta:TipoDaOferta
+  TituloPagina:TituloPagina
+  Transacao:Transacao
+  URLAtendimento:URLAtendimento
+  UrlFicha:UrlFicha
+  UrlFotoDestaqueTamanhoM:UrlFotoDestaqueTamanhoM
+  UrlFotoDestaqueTamanhoP:UrlFotoDestaqueTamanhoP
+  UrlLogotipoCliente:UrlLogotipoCliente
+  Valor:Valor
+  ValorIPTU:ValorIPTU
+  ZapID:ZapID
+  scraped_time:scraped_time
+  updated_time:updated_time
+}"""
