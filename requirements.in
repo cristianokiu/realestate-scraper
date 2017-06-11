@@ -2,3 +2,4 @@ Scrapy
 fake-useragent
 pymongo
 jmespath
+dateparser

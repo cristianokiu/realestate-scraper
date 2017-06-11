@@ -49,7 +49,7 @@ COOKIES_ENABLED = False
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {
-#    'realestate.middlewares.RealestateSpiderMiddleware': 543,
+   'realestate.middlewares.RealestateSpiderMiddleware': 543,
 }
 
 # Enable or disable downloader middlewares
@@ -67,8 +67,8 @@ SPIDER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
+    'realestate.pipelines.RealestatePipeline': 100,
     'realestate.pipelines.MongoDBPipeline': 200,
-    'realestate.pipelines.RealestatePipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -90,7 +90,7 @@ HTTPCACHE_ENABLED = True
 #HTTPCACHE_EXPIRATION_SECS = 0
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
-#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+HTTPCACHE_STORAGE = 'realestate.extensions.FilesystemCacheStorage'
 
 # Log Messages
 LOG_LEVEL='INFO'
